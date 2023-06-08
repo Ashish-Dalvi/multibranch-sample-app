@@ -1,9 +1,7 @@
 pipeline {
-  agent {label 'linux'}
-  options {
-    buildDiscarder(logRotator(numToKeepStr: '5'))
-  }
-  stages {
+    agent any
+
+    stages {
         stage('Build') {
             steps {
                 echo 'Building..'
@@ -17,7 +15,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
-      }
+            }
+        }
     }
-  }
 }
